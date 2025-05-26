@@ -1,0 +1,31 @@
+Endpoint URL
+https://retoolapi.dev/DudDZC/data
+
+See all available endpoints here (generated with json-server).
+Endpoint URL
+
+HTTP method endpoints
+
+GET
+/DudDZC/data
+
+GET filter
+/DudDZC/data?nombre=value
+
+GET by id
+/DudDZC/data/1
+
+GET paginate
+/DudDZC/data?_page=2&_limit=10
+
+POST
+/DudDZC/data
+
+PUT
+/DudDZC/data/1
+
+PATCH
+/DudDZC/data/1
+
+DELETE
+/DudDZC/data/1
