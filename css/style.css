@@ -13,11 +13,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1001; /*PARQ EU EL BOTONO SIEMPRE QUEDE ARRIBA DE TODO*/
+    z-index: 1001; /*PARA QUE EL BOTON SIEMPRE QUEDE ARRIBA DE TODO*/
 }
 
 .add-button:hover{
     transform: scale(1.1);
     transition: 0.5s;
     color: white;
+}
+
+.tabla-scroll{
+    overflow-x: auto;
 }
