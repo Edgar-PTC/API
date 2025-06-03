@@ -58,13 +58,13 @@ document.getElementById("frmAgregar").addEventListener("submit", async e => {
     e.preventDefault();//"e" representa al evento submit - EVITA QUE EL FORMULARIO SE ENVIE DE GOLPE
 
     //Capturar los valores del form
-    const nombreForm = getElementById("nombre").value.trim();
-    const apellidoForm = getElementById("apellido").value.trim();
-    const emailForm = getElementById("email").value.trim();
-    const edadForm = getElementById("edad").value.trim();
+    const nombre = document.getElementById("nombre").value.trim();
+    const apellido = document.getElementById("apellido").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const edad = document.getElementById("edad").value.trim();
 
     //Validacion basica
-    if(!nombreForm || !apellidoForm || !emailForm || !edadForm){
+    if(!nombre || !apellido || !email || !edad){
         alert("Complete todos los campos");
         return;
     }
@@ -73,7 +73,7 @@ document.getElementById("frmAgregar").addEventListener("submit", async e => {
     const respuesta = await fetch(API_URL, {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({nombreForm, apellidoForm, emailForm, edadForm})
+        body: JSON.stringify({nombre,apellido,email,edad})
     });
 
     if(respuesta.ok){
