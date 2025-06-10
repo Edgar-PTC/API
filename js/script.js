@@ -124,3 +124,33 @@ function AbrirModalEditar(id, nombre, apellido, email, edad){
     //Modal se abre despues de agregar los valores a los input
     modaleditar.showModal();
 }
+
+document.getElementById("frmEditar").addEventListener("submit", async e => {
+    e.preventDefault();
+    
+    const id = document.getElementById("idEditar").value;
+    const nombre = document.getElementById("nombreEditar").value.trim();
+    const apellido = document.getElementById("apellidoEditar").value.trim();
+    const email = document.getElementById("emailEditar").value.trim();
+    const edad = document.getElementById("edadEditar").value.trim();
+
+    if(!id || !nombre || !apellido || !email || ! edad){
+        alert("Complete todos los campos!!");
+        return;
+    }
+
+    const respuesta = await fetch(`${API_URL}/${id}`, {
+        method: "PUT",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({edad,email,nombre,apellido})
+    });
+
+    if(respuesta.ok){
+        alert("Registro actualizado con exito")
+        modaleditar.close();
+        obtenerPersonas();
+    }
+    else{
+        alert("Hubo un error al actualizar");
+    }
+});
