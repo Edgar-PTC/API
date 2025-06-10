@@ -29,7 +29,7 @@ function mostrarDatos(datos){
                 <td>${persona.email}</td>
                 <td>${persona.edad}</td>
                 <td>
-                    <button>Editar</button>
+                    <button onClick="AbrirModalEditar(${persona.id}, '${persona.nombre}', '${persona.apellido}', '${persona.email}', '${persona.edad}')">Editar</button>
                     <button onClick="EliminarPersona(${persona.id})">Eliminar</button>
                 </td>
             </tr>
@@ -102,4 +102,25 @@ async function EliminarPersona(id) {
             //RECARGAMOS LA TABLA
             obtenerPersonas();
         }
+}
+
+//Proceso para editar un registro
+const modaleditar = document.getElementById("modal-editar");
+const btnCerrarEditar = document.getElementById("btnCerrarEditar");
+
+//Para cerrar el formulario
+btnCerrarEditar.addEventListener("click", () => {
+    modaleditar.close();
+});
+
+function AbrirModalEditar(id, nombre, apellido, email, edad){
+    //Se agregan los valores del registrp en los input
+    document.getElementById("idEditar").value = id;
+    document.getElementById("nombreEditar").value = nombre;
+    document.getElementById("apellidoEditar").value = apellido;
+    document.getElementById("emailEditar").value = email;
+    document.getElementById("edadEditar").value = edad;
+
+    //Modal se abre despues de agregar los valores a los input
+    modaleditar.showModal();
 }
